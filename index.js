@@ -165,18 +165,8 @@ function createPanZoom(domElement, options) {
   }
 
   function transformToScreen(x, y) {
-    if (panController.getScreenCTM) {
-      var parentCTM = panController.getScreenCTM()
-      var parentScaleX = parentCTM.a
-      var parentScaleY = parentCTM.d
-      var parentOffsetX = parentCTM.e
-      var parentOffsetY = parentCTM.f
-      storedCTMResult.x = x * parentScaleX - parentOffsetX
-      storedCTMResult.y = y * parentScaleY - parentOffsetY
-    } else {
-      storedCTMResult.x = x
-      storedCTMResult.y = y
-    }
+    storedCTMResult.x = x
+    storedCTMResult.y = y
 
     return storedCTMResult
   }
